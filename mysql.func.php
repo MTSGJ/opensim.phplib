@@ -130,6 +130,8 @@ class DB
 
     function next_record()
     {
+        if (!$this->Link_ID) return null;
+        //
         if (!$this->UseMySQLi) {
             $this->Record = @mysql_fetch_array($this->Query_ID);
             $this->Row += 1;
@@ -152,7 +154,6 @@ class DB
                 $this->Query_ID = null;
             }
         }
-
         return $this->Record;
     }
 
