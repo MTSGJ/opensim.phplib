@@ -490,7 +490,8 @@ function  opensim_get_avatar_info($uuid, $hguser=true, &$db=null)
 //        $avinfo['serverIP2']  = gethostbyname($uri[3]);
     }
     //    
-    if ($hgURI!=null) $uri = preg_split("/[:\/]/", $hgURI);
+    if ($hgURI==null) $hgURI = '-';
+    $uri = preg_split("/[:\/]/", $hgURI);
     if (array_key_exists(3, $uri)) {
         $avinfo['hgName'] = $uri[3];
     }
